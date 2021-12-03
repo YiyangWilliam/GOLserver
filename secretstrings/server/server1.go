@@ -24,6 +24,7 @@ var changeList [][]int
 type GOLOperations struct {}
 
 func (s *GOLOperations) NextState(req stubs.Request, res *stubs.Response) (err error) {
+	maxThread=req.Thread
 	go calculatePartState(req.Board,req.Start,req.End)
 	waitAllDown()
 	//fmt.Println(changeList)
